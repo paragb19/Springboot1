@@ -22,7 +22,6 @@ public class Controller {
     public ResponseEntity userDetails() {
 
         List userDetail = userService.getUserdetails();
-        System.out.println(userDetail.toArray().toString());
         return new ResponseEntity(userDetail, HttpStatus.OK);
     }
 
