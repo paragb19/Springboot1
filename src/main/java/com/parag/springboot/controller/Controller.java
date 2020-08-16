@@ -1,16 +1,14 @@
 package com.parag.springboot.controller;
 
-import com.parag.springboot.domainobject.UserDetailsDom;
+import com.parag.springboot.domainobject.RequestUserDetailsDom;
 import com.parag.springboot.mapper.Objectmapper;
 import com.parag.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -29,8 +27,8 @@ public class Controller {
 
     @PostMapping("/list/upsert")
     @ResponseBody
-    public ResponseEntity userDetails(@RequestBody UserDetailsDom userDetailsDom) {
-        return new ResponseEntity(userService.upsert(new Objectmapper().mappDOMtoEntity(userDetailsDom)),HttpStatus.OK);
+    public ResponseEntity userDetails(@RequestBody RequestUserDetailsDom requestUserDetailsDom) {
+        return new ResponseEntity(userService.upsert(new Objectmapper().mappDOMtoEntity(requestUserDetailsDom)),HttpStatus.OK);
 
     }
 

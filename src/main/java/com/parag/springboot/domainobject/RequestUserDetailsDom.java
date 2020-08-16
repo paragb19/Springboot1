@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @ToString
 @Getter
 @Setter
-public class UserDetailsDom {
+public class RequestUserDetailsDom {
         @JsonProperty(value = "id")
         private int id;
         @JsonProperty(value = "fname")

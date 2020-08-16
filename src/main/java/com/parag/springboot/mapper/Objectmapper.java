@@ -1,16 +1,16 @@
 package com.parag.springboot.mapper;
 
-import com.parag.springboot.domainobject.UserDetailsDom;
+import com.parag.springboot.domainobject.RequestUserDetailsDom;
 import com.parag.springboot.entity.UserDetails;
 
 public class Objectmapper {
 
-    public UserDetails mappDOMtoEntity(UserDetailsDom userDetailsDom){
+    public UserDetails mappDOMtoEntity(RequestUserDetailsDom requestUserDetailsDom){
         return UserDetails.builder()
-                .id(userDetailsDom.getId())
-                .firstName(userDetailsDom.getFirstName())
-                .lastName(userDetailsDom.getLastName())
-                .email(userDetailsDom.getEmail())
-                .password(userDetailsDom.getPassword()).build();
+                .id(requestUserDetailsDom.getId())
+                .firstName(requestUserDetailsDom.getFirstName())
+                .lastName(requestUserDetailsDom.getLastName())
+                .email(requestUserDetailsDom.getEmail())
+                .password(requestUserDetailsDom.getPassword()).build();
     }
 }
