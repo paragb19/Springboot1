@@ -1,6 +1,6 @@
 package com.parag.springboot.repository;
 
-import com.parag.springboot.model.UserDetails;
+import com.parag.springboot.entity.UserDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
