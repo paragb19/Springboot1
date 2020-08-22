@@ -21,11 +21,11 @@ public class Controller {
     @ResponseBody
     public ResponseEntity userDetails() {
 
-        List userDetail = userService.getUserdetails();
-        return new ResponseEntity(userDetail, HttpStatus.OK);
+        //List userDetail = userService.getUserdetails();
+        return new ResponseEntity(new Objectmapper().mappEntityToDom(userService.getUserdetails()), HttpStatus.OK);
     }
 
-    @PostMapping("/list/upsert")
+    @PostMapping("/upsert")
     @ResponseBody
     public ResponseEntity userDetails(@RequestBody RequestUserDetailsDom requestUserDetailsDom) {
         return new ResponseEntity(userService.upsert(new Objectmapper().mappDOMtoEntity(requestUserDetailsDom)),HttpStatus.OK);

@@ -4,7 +4,7 @@ import com.parag.springboot.domainobject.ResponseDom;
 
 import java.util.List;
 
-public interface UserService <T>{
-    public List getUserdetails();
+public interface UserService <T,M>{
+    public List<M> getUserdetails();
     public ResponseDom upsert(T t);
 }
