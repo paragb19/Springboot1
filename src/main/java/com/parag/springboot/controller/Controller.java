@@ -7,8 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -21,7 +24,7 @@ public class Controller {
     @ResponseBody
     public ResponseEntity userDetails() {
 
-        //List userDetail = userService.getUserdetails();
+
         return new ResponseEntity(new Objectmapper().mappEntityToDom(userService.getUserdetails()), HttpStatus.OK);
     }
 
@@ -31,5 +34,18 @@ public class Controller {
         return new ResponseEntity(userService.upsert(new Objectmapper().mappDOMtoEntity(requestUserDetailsDom)),HttpStatus.OK);
 
     }
+
+    @RequestMapping("/securedPage")
+    public String securePage(Model model, Principal principal){
+        return "securedPage";
+
+
+    }
+    @RequestMapping("/")
+    public String index(Model model, Principal principal) {
+        return "index";
+    }
+
+
 
 }
